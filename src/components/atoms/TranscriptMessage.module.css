@@ -1,0 +1,165 @@
+.message {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  padding: 0;
+  margin-bottom: 24px;
+  max-width: 100%;
+  animation: slideIn 0.2s ease-out;
+}
+
+@keyframes slideIn {
+  from {
+    opacity: 0;
+    transform: translateY(10px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* User messages - right aligned with light background */
+.message.user {
+  align-self: stretch;
+}
+
+/* Assistant messages - left aligned */
+.message.assistant {
+  align-self: stretch;
+}
+
+/* Header with role label */
+.header {
+  display: flex;
+  align-items: center;
+  gap: var(--spacing-sm);
+
+  &[data-is-user="true"] {
+    justify-content: flex-end;
+  }
+}
+
+.role {
+  font-size: 16px;
+  font-weight: 700;
+  color: #000000;
+}
+
+.message.user .role {
+  text-align: right;
+}
+
+.message.assistant .role {
+  text-align: left;
+}
+
+/* Content */
+.content {
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+}
+
+.text {
+  margin: 0;
+  font-size: 16px;
+  line-height: 1.6;
+  word-wrap: break-word;
+  white-space: pre-wrap;
+  color: #4a4a4a;
+  max-width: 80%;
+}
+
+.message.user .content {
+  background: #F6F5F4;
+  padding: 25px;
+  border-radius: 12px;
+  align-items: flex-end;
+
+}
+
+.message.assistant .content {
+  background: transparent;
+  padding: 0;
+}
+
+.message.user .text {
+  color: #4a4a4a;
+  text-align: right;
+}
+
+.message.assistant .text {
+  color: #4a4a4a;
+}
+
+.divider {
+  width: 100%;
+  height: 0px;
+  border: 1px solid #E7E7E7;
+}
+
+/* Streaming indicators */
+.streamingIndicator {
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+  margin-left: 8px;
+}
+
+.dot {
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background-color: #ea4f43;
+  animation: pulse 1.4s ease-in-out infinite;
+}
+
+.dot:nth-child(1) {
+  animation-delay: 0s;
+}
+
+.dot:nth-child(2) {
+  animation-delay: 0.2s;
+}
+
+.dot:nth-child(3) {
+  animation-delay: 0.4s;
+}
+
+@keyframes pulse {
+  0%, 60%, 100% {
+    opacity: 0.3;
+    transform: scale(0.8);
+  }
+  30% {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+/* Blinking cursor for streaming text */
+.cursor {
+  display: inline-block;
+  margin-left: 2px;
+  animation: blink 1s step-end infinite;
+  color: #ea4f43;
+  font-weight: normal;
+}
+
+@keyframes blink {
+  0%, 50% {
+    opacity: 1;
+  }
+  51%, 100% {
+    opacity: 0;
+  }
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .message {
+    max-width: 100%;
+  }
+}

@@ -1,0 +1,29 @@
+---
+import BaseLayout from '@layouts/BaseLayout.astro';
+import AuthGuard from '@components/AuthGuard';
+import ErrorBoundary from '@components/ErrorBoundary';
+import TalkHistoryPage from '@components/organisms/TalkHistoryPage';
+
+// Generate a single static template page
+// The actual conversation ID will be read from the URL path client-side
+export function getStaticPaths() {
+  return [
+    { params: { id: '_' } }
+  ];
+}
+---
+
+<BaseLayout
+  title="Conversation History - Smalltalks"
+  padded={false}
+>
+  <div slot="header-right">
+    <a href="/lessons" style="text-decoration: underline;">Lessons</a>
+  </div>
+
+  <AuthGuard client:load>
+    <ErrorBoundary client:load>
+      <TalkHistoryPage client:load />
+    </ErrorBoundary>
+  </AuthGuard>
+</BaseLayout>

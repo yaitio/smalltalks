@@ -1,0 +1,293 @@
+.container {
+  background-color: #ffffff;
+  display: flex;
+  flex-direction: column;
+}
+
+
+.nav {
+  display: flex;
+  gap: 24px;
+}
+
+.navLink {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 10px 24px;
+  border-radius: 999px;
+  background-color: #ea4f43;
+  color: #ffffff;
+  text-decoration: none;
+  font-size: 16px;
+  font-weight: 600;
+  box-shadow: 0 12px 24px rgba(234, 79, 67, 0.24);
+  transition: transform 0.2s, box-shadow 0.2s, background-color 0.2s;
+}
+
+.navLink:hover {
+  transform: translateY(-1px);
+  box-shadow: 0 16px 32px rgba(234, 79, 67, 0.3);
+  background-color: #d4453a;
+}
+
+/* Content */
+.content {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+}
+
+.pageTitle {
+  font-size: 32px;
+  font-weight: 700;
+  color: #000000;
+  margin: 0;
+}
+
+/* Table Header */
+.tableHeader {
+  display: grid;
+  grid-template-columns: 2fr 1fr 1fr 1fr;
+  gap: 16px;
+  font-weight: 400;
+  color: #666666;
+  padding: 10px 0;
+  font-size: 14px;
+  border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+}
+
+.headerTopic,
+.headerDuration,
+.headerDate,
+.headerAction {
+  font-size: 14px;
+  font-weight: 500;
+}
+
+.headerAction {
+  color: #ffa500;
+}
+
+/* Session List */
+.sessionList {
+  display: flex;
+  flex-direction: column;
+  gap: 0;
+}
+
+.sessionRow {
+  display: grid;
+  grid-template-columns: 2fr 1fr 1fr 1fr;
+  gap: 16px;
+  padding: 24px 0;
+  background-color: #ffffff;
+  align-items: center;
+}
+
+.sessionTopic {
+  font-size: 16px;
+  font-weight: 400;
+  color: #000000;
+  line-height: 1.5;
+}
+
+.sessionDuration {
+  font-size: 16px;
+  color: #000000;
+}
+
+.sessionDate {
+  font-size: 16px;
+  color: #000000;
+}
+
+.sessionAction {
+  display: flex;
+  justify-content: flex-start;
+}
+
+.getStartedButton {
+  background-color: transparent;
+  color: #121212;
+  font-size: 16px;
+  font-weight: 500;
+  cursor: pointer;
+  transition: background-color 0.2s, color 0.2s;
+  /* Auto Layout Horizontal */
+
+  box-sizing: border-box;
+  /* Auto layout */
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  padding: 5.5px 40.6094px 7.5px 41.5938px;
+
+  width: 180px;
+  height: 40px;
+  border: 1px solid rgba(0, 0, 0, 0.15);
+  border-radius: 5px;
+}
+
+.getStartedButton:hover {
+  background-color: #000000;
+  color: #ffffff;
+}
+
+/* Empty State */
+.empty {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  min-height: 400px;
+  gap: 16px;
+  text-align: center;
+}
+
+.emptyImage {
+  width: min(360px, 80vw);
+  border-radius: 16px;
+  box-shadow: 0 24px 80px rgba(5, 5, 5, 0.12);
+}
+
+.empty h2 {
+  font-size: 28px;
+  font-weight: 700;
+  color: #000000;
+  margin: 0;
+}
+
+.empty p {
+  font-size: 16px;
+  color: #4a4a4a;
+  margin: 0;
+}
+
+.startButton {
+  background-color: #ea4f43;
+  color: #ffffff;
+  font-size: 16px;
+  font-weight: 600;
+  padding: 14px 32px;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  margin-top: 8px;
+  transition: transform 0.2s, box-shadow 0.2s, background-color 0.2s;
+}
+
+.startButton:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 6px 12px rgba(234, 79, 67, 0.3);
+  background-color: #d4453a;
+}
+
+.startButton:active {
+  transform: translateY(0);
+}
+
+/* Loading State */
+.loading {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  min-height: 400px;
+  gap: 16px;
+}
+
+.spinner {
+  width: 40px;
+  height: 40px;
+  border: 4px solid #e5e5e5;
+  border-top-color: #ea4f43;
+  border-radius: 50%;
+  animation: spin 1s linear infinite;
+}
+
+@keyframes spin {
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+/* Divider */
+.dividerLine {
+  width: 100%;
+  height: 1px;
+  background-color: rgba(0, 0, 0, 0.1);
+  margin: 0;
+}
+
+/* Responsive Design */
+@media (max-width: 1530px) {
+
+  .headerDuration,
+  .sessionDuration {
+    display: none;
+  }
+
+  .tableHeader,
+  .sessionRow {
+    grid-template-columns: 2fr 1fr 1fr;
+  }
+}
+
+@media (max-width: 1200px) {
+
+  .header,
+  .content,
+  .footer {
+    padding-left: 50px;
+    padding-right: 50px;
+  }
+}
+
+@media (max-width: 768px) {
+
+  .header,
+  .content,
+  .footer {
+    padding-left: 24px;
+    padding-right: 24px;
+  }
+
+  .navLink {
+    padding: 8px 20px;
+    font-size: 14px;
+  }
+
+  .pageTitle {
+    font-size: 24px;
+  }
+
+  .tableHeader {
+    display: none;
+  }
+
+  .sessionRow {
+    grid-template-columns: 1fr;
+    gap: 12px;
+  }
+
+  .sessionTopic {
+    order: 1;
+  }
+
+  .sessionDate {
+    order: 2;
+    font-size: 14px;
+  }
+
+  .sessionDuration {
+    order: 3;
+    font-size: 14px;
+  }
+
+  .sessionAction {
+    order: 4;
+    justify-content: flex-start;
+  }
+}

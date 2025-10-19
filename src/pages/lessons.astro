@@ -1,0 +1,14 @@
+---
+import BaseLayout from '@/layouts/BaseLayout.astro';
+import LessonsPage from '@/components/organisms/LessonsPage';
+import AuthGuard from '@/components/AuthGuard';
+
+const title = 'My Lessons | Smalltalks';
+const description = 'View your conversation history';
+---
+
+<BaseLayout title={title} padded={false}>
+  <AuthGuard client:load>
+    <LessonsPage client:load />
+  </AuthGuard>
+</BaseLayout>

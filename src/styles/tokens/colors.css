@@ -1,0 +1,61 @@
+/**
+ * Color Tokens
+ * Design system colors based on Figma exports
+ * Extracted from landing.png, talk.png, and lessons.png
+ */
+
+:root {
+  /* Brand Colors - Extracted from Figma */
+  --color-primary: #EA4F43;
+  --color-primary-hover: #ff5252;
+  --color-primary-active: #e63946;
+  --color-primary-light: #ffe5e5;
+  --color-primary-dark: #cc5555;
+
+  --color-accent: #ffa500;
+  --color-accent-hover: #ff8c00;
+  --color-accent-active: #e69500;
+  --color-accent-light: #fff3e0;
+  --color-accent-dark: #cc8400;
+
+  /* Semantic Colors */
+  --color-success: #10b981;
+  --color-success-light: #d1fae5;
+  --color-success-dark: #065f46;
+
+  --color-warning: #f59e0b;
+  --color-warning-light: #fef3c7;
+  --color-warning-dark: #92400e;
+
+  --color-error: #ef4444;
+  --color-error-light: #fee2e2;
+  --color-error-dark: #991b1b;
+
+  --color-info: #3b82f6;
+  --color-info-light: #dbeafe;
+  --color-info-dark: #1e40af;
+
+  /* Neutral Colors - Extracted from Figma */
+  --color-background: #ffffff;
+  --color-background-alt: #fafafa;
+  --color-surface: #ffffff;
+  --color-surface-hover: #fafafa;
+
+  --color-text-primary: #000000;
+  --color-text-secondary: #666666;
+  --color-text-tertiary: #999999;
+  --color-text-inverse: #ffffff;
+
+  --color-border: #e5e7eb;
+  --color-border-hover: #d1d5db;
+  --color-border-focus: var(--color-primary);
+
+  /* Connection Quality Colors (for WebRTC status) */
+  --color-connection-excellent: #10b981;
+  --color-connection-good: #f59e0b;
+  --color-connection-poor: #ef4444;
+
+  /* Transcript Role Colors */
+  --color-user: var(--color-primary);
+  --color-assistant: var(--color-accent);
+}

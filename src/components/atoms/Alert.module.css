@@ -1,0 +1,82 @@
+.alert {
+  display: flex;
+  align-items: flex-start;
+  gap: var(--space-3);
+  padding: var(--space-4);
+  border-radius: 8px;
+  border: 1px solid;
+  font-size: var(--font-size-sm);
+  line-height: var(--line-height-normal);
+}
+
+.icon {
+  font-size: var(--font-size-lg);
+  font-weight: var(--font-weight-bold);
+  line-height: 1;
+  flex-shrink: 0;
+}
+
+.message {
+  flex: 1;
+}
+
+.dismissButton {
+  flex-shrink: 0;
+  width: 24px;
+  height: 24px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: transparent;
+  border: none;
+  cursor: pointer;
+  opacity: 0.7;
+  transition: opacity 0.2s ease;
+  font-size: var(--font-size-base);
+  padding: 0;
+}
+
+.dismissButton:hover {
+  opacity: 1;
+}
+
+/* Variants */
+.success {
+  background-color: var(--color-success-light);
+  border-color: var(--color-success);
+  color: var(--color-success-dark);
+}
+
+.success .icon {
+  color: var(--color-success);
+}
+
+.error {
+  background-color: var(--color-error-light);
+  border-color: var(--color-error);
+  color: var(--color-error-dark);
+}
+
+.error .icon {
+  color: var(--color-error);
+}
+
+.warning {
+  background-color: var(--color-warning-light);
+  border-color: var(--color-warning);
+  color: var(--color-warning-dark);
+}
+
+.warning .icon {
+  color: var(--color-warning);
+}
+
+.info {
+  background-color: var(--color-info-light);
+  border-color: var(--color-info);
+  color: var(--color-info-dark);
+}
+
+.info .icon {
+  color: var(--color-info);
+}

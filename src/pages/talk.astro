@@ -1,0 +1,21 @@
+---
+import BaseLayout from '@layouts/BaseLayout.astro';
+import AuthGuard from '@components/AuthGuard';
+import ErrorBoundary from '@components/ErrorBoundary';
+import TalkPage from '@components/organisms/TalkPage';
+---
+
+<BaseLayout
+  title="Talk - Smalltalks"
+  padded={false}
+>
+  <div slot="header-right">
+    <a href="/lessons" style="text-decoration: underline;">Lessons</a>
+  </div>
+
+  <AuthGuard client:load>
+    <ErrorBoundary client:load>
+      <TalkPage client:load />
+    </ErrorBoundary>
+  </AuthGuard>
+</BaseLayout>

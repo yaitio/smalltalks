@@ -1,0 +1,92 @@
+---
+interface Props {
+  title?: string;
+  description?: string;
+  padded?: boolean;
+  fullWidth?: boolean;
+  showUserMenu?: boolean;
+}
+
+import Footer from '@components/layout/Footer';
+import Header from '@components/layout/Header.astro';
+
+const {
+  title = 'Smalltalks - AI-Powered Voice Conversation',
+  description = 'Practice language skills with AI-powered real-time voice conversations',
+  padded = true,
+  showUserMenu = true,
+} = Astro.props as Props;
+---
+
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="description" content={description} />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <meta name="generator" content={Astro.generator} />
+
+    <!-- Google Fonts: Inter -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap"
+      rel="stylesheet"
+    />
+
+    <title>{title}</title>
+  </head>
+  <body>
+    <Header showUserMenu={showUserMenu}>
+      <slot slot="header-right" name="header-right" />
+    </Header>
+
+    <main
+      id="main"
+      class="layout-main"
+    >
+      <slot />
+    </main>
+
+    <Footer client:load />
+
+    <style is:global>
+      @import '../styles/global.css';
+      @import '../styles/utils/utilities.css';
+
+      body {
+        display: flex;
+        flex-direction: column;
+        gap: 25px;
+         padding-left: 100px;
+        padding-right: 100px;
+      }
+
+      main {
+        flex: 1;
+        gap: 25px;
+      }
+
+      .layout-main {
+        width: 100%;
+        max-width: 1532px;
+        margin: 0 auto;
+      }
+
+      @media (max-width: 1531px) {
+       body {
+          padding-left: 94px;
+          padding-right: 94px;
+        }
+      }
+
+      @media (max-width: 800px) {
+       body{
+          padding-left: 20px;
+          padding-right: 20px;
+        }
+      }
+    </style>
+  </body>
+</html>

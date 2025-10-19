@@ -1,0 +1,11 @@
+---
+import BaseLayout from '@layouts/BaseLayout.astro';
+import HomePage from '@components/organisms/HomePage';
+---
+
+<BaseLayout
+  title="Smalltalks - AI Language Learning"
+  padded={false}
+>
+  <HomePage client:load />
+</BaseLayout>

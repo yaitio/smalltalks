@@ -1,0 +1,141 @@
+.container {
+  background-color: #ffffff;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+
+/* Content */
+.content {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+}
+
+/* Top Bar */
+.topBar {
+  display: flex;
+  flex-direction: row;
+  padding: 0;
+  margin: 0;
+  align-items: center;
+}
+
+/* Controls */
+.controls {
+  display: flex;
+  justify-content: center;
+  padding: 20px 0;
+}
+
+/* Chat */
+.chat {
+  flex: 1;
+  background-color: #ffffff;
+  min-height: 400px;
+  overflow-y: auto;
+}
+
+.dividerFull {
+  width: 100%;
+  height: 0px;
+
+  border: 1px solid #E7E7E7;
+
+}
+
+/* Empty State */
+.emptyState {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 400px;
+}
+
+.homework {}
+
+.homeworkTitle {
+  font-weight: 700;
+  color: #000000;
+  max-width: 264px;
+}
+
+.homeworkContent {
+  display: flex;
+  justify-content: space-between;
+}
+
+.divider {
+  width: 360px;
+  height: 14px;
+  margin: 0 auto;
+  background: #111111;
+  box-shadow: 0px 36px 89px rgba(0, 0, 0, 0.04), 0px 23.3333px 52.1227px rgba(0, 0, 0, 0.03), 0px 13.8667px 28.3481px rgba(0, 0, 0, 0.024), 0px 7.2px 14.4625px rgba(0, 0, 0, 0.02), 0px 2.93333px 7.25185px rgba(0, 0, 0, 0.016), 0px 0.666667px 3.50231px rgba(0, 0, 0, 0.008);
+  border-radius: 5px;
+}
+
+.homeworkImage {
+  width: auto;
+  border-radius: 16px;
+  height: 158px;
+}
+
+.homeworkText {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  padding: 25px;
+  gap: 20px;
+  background: rgba(240, 193, 101, 0.2);
+  border-radius: 25px;
+  /* Inside auto layout */
+  flex: none;
+  order: 1;
+  align-self: stretch;
+  flex-grow: 0;
+}
+
+.homeworkText p {
+  font-size: 16px;
+  line-height: 1.6;
+  color: #4a4a4a;
+  margin: 0;
+}
+
+/* Divider */
+.divider {
+  width: 100%;
+  height: 1px;
+  background-color: #e5e5e5;
+  margin: 24px 0;
+}
+
+/* Responsive Design */
+@media (max-width: 1200px) {
+
+  .header,
+  .content {
+    padding-left: 50px;
+    padding-right: 50px;
+  }
+}
+
+@media (max-width: 800px) {
+
+  .header,
+  .content {
+    padding-left: 24px;
+    padding-right: 24px;
+  }
+
+  .homeworkContent {
+    flex-direction: column;
+    gap: 5px;
+  }
+
+  .divider {
+    width: 287px;
+  }
+
+}

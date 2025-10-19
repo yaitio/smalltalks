@@ -1,0 +1,133 @@
+.section {
+  padding: var(--space-16) 0;
+  background: var(--color-background);
+}
+
+.container {
+  max-width: 600px;
+  margin: 0 auto;
+  padding: 0 var(--space-6);
+}
+
+.title {
+  font-size: var(--font-size-3xl);
+  font-weight: var(--font-weight-bold);
+  text-align: center;
+  color: var(--color-text-primary);
+  margin-bottom: var(--space-12);
+}
+
+/* Character selector */
+.characters {
+  display: flex;
+  justify-content: center;
+  gap: var(--space-4);
+  margin-bottom: var(--space-12);
+  flex-wrap: wrap;
+}
+
+.character {
+  width: 64px;
+  height: 64px;
+  font-size: 32px;
+  background: var(--color-surface);
+  border: 2px solid var(--color-border);
+  border-radius: 50%;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.character:hover {
+  border-color: var(--color-primary);
+  transform: scale(1.05);
+}
+
+.characterActive {
+  border-color: var(--color-primary);
+  border-width: 3px;
+  box-shadow: 0 0 0 4px rgba(255, 107, 107, 0.1);
+}
+
+/* Form */
+.form {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-6);
+}
+
+.field {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-2);
+}
+
+.label {
+  font-size: var(--font-size-sm);
+  font-weight: var(--font-weight-medium);
+  color: var(--color-text-primary);
+}
+
+.select {
+  width: 100%;
+  padding: var(--space-3) var(--space-4);
+  font-family: var(--font-family-primary);
+  font-size: var(--font-size-base);
+  color: var(--color-text-primary);
+  background-color: var(--color-surface);
+  border: 1px solid var(--color-border);
+  border-radius: 8px;
+  transition: all 0.2s ease;
+  min-height: 44px;
+  cursor: pointer;
+}
+
+.select:hover {
+  border-color: var(--color-border-hover);
+}
+
+.select:focus {
+  outline: none;
+  border-color: var(--color-primary);
+  box-shadow: 0 0 0 3px rgba(255, 107, 107, 0.1);
+}
+
+.error {
+  font-size: var(--font-size-sm);
+  color: var(--color-error);
+  margin: 0;
+}
+
+/* Success state */
+.success {
+  text-align: center;
+  padding: var(--space-16) 0;
+}
+
+.successIcon {
+  width: 80px;
+  height: 80px;
+  margin: 0 auto var(--space-6);
+  font-size: 48px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: var(--color-success-light);
+  color: var(--color-success);
+  border-radius: 50%;
+}
+
+.successTitle {
+  font-size: var(--font-size-2xl);
+  font-weight: var(--font-weight-bold);
+  color: var(--color-text-primary);
+  margin-bottom: var(--space-4);
+}
+
+.successText {
+  font-size: var(--font-size-lg);
+  color: var(--color-text-secondary);
+  line-height: var(--line-height-relaxed);
+}

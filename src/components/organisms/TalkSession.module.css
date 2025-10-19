@@ -1,0 +1,100 @@
+.container {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: var(--spacing-md);
+  gap: var(--spacing-md);
+}
+
+/* Status Bar */
+.statusBar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: var(--spacing-sm) var(--spacing-md);
+  background: var(--color-background-alt);
+  border-radius: var(--border-radius-md);
+  border: 1px solid var(--color-border);
+}
+
+.statusIndicator {
+  display: flex;
+  align-items: center;
+  gap: var(--spacing-sm);
+}
+
+.statusDot {
+  width: 12px;
+  height: 12px;
+  border-radius: 50%;
+  animation: pulse 2s ease-in-out infinite;
+}
+
+.statusDot.idle {
+  background: var(--color-text-tertiary);
+  animation: none;
+}
+
+.statusDot.connecting {
+  background: var(--color-warning);
+}
+
+.statusDot.connected {
+  background: var(--color-success);
+}
+
+.statusDot.reconnecting {
+  background: var(--color-warning);
+}
+
+.statusDot.disconnected {
+  background: var(--color-text-tertiary);
+  animation: none;
+}
+
+.statusDot.error {
+  background: var(--color-error);
+  animation: none;
+}
+
+@keyframes pulse {
+  0%, 100% {
+    opacity: 1;
+  }
+  50% {
+    opacity: 0.5;
+  }
+}
+
+.statusText {
+  font-size: var(--font-size-sm);
+  font-weight: var(--font-weight-medium);
+  color: var(--color-text-primary);
+}
+
+/* Waveform visualization */
+.waveformContainer {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: var(--spacing-lg);
+  background: var(--color-background-alt);
+  border-radius: var(--border-radius-md);
+  border: 1px solid var(--color-border);
+  min-height: 120px;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .container {
+    padding: var(--spacing-sm);
+  }
+
+  .statusBar {
+    flex-direction: column;
+    gap: var(--spacing-sm);
+    align-items: flex-start;
+  }
+}

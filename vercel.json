@@ -1,0 +1,8 @@
+{
+  "rewrites": [
+    {
+      "source": "/talk/:id",
+      "destination": "/talk/_/"
+    }
+  ]
+}

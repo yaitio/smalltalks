@@ -1,0 +1,73 @@
+.badge {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--spacing-sm);
+  padding: var(--spacing-xs) var(--spacing-md);
+  border-radius: var(--border-radius-full);
+  font-size: var(--font-size-sm);
+  font-weight: var(--font-weight-semibold);
+  transition: all 0.2s ease;
+}
+
+.label {
+  display: flex;
+  align-items: center;
+  gap: var(--spacing-xs);
+}
+
+.dot {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  animation: pulse 2s ease-in-out infinite;
+}
+
+@keyframes pulse {
+  0%, 100% {
+    opacity: 1;
+  }
+  50% {
+    opacity: 0.6;
+  }
+}
+
+.details {
+  display: flex;
+  gap: var(--spacing-sm);
+  padding-left: var(--spacing-sm);
+  border-left: 1px solid currentColor;
+  opacity: 0.8;
+}
+
+.metric {
+  font-size: var(--font-size-xs);
+  font-weight: var(--font-weight-normal);
+}
+
+/* Quality variants */
+.excellent {
+  background: var(--color-success-bg);
+  color: var(--color-success);
+}
+
+.excellent .dot {
+  background: var(--color-success);
+}
+
+.good {
+  background: var(--color-warning-bg);
+  color: var(--color-warning);
+}
+
+.good .dot {
+  background: var(--color-warning);
+}
+
+.poor {
+  background: var(--color-error-bg);
+  color: var(--color-error);
+}
+
+.poor .dot {
+  background: var(--color-error);
+}

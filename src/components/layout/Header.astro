@@ -1,0 +1,26 @@
+---
+export interface Props {
+  showUserMenu?: boolean;
+}
+
+const { showUserMenu = true } = Astro.props;
+
+import HeaderClient from './HeaderClient';
+import styles from './Header.module.css';
+---
+
+<header class={styles.header}>
+  <div class={styles.container}>
+    <a href="/" aria-label="Smalltalks Home">
+      <img src="/assets/logomark.svg" alt="logo" />
+    </a>
+
+    <div class={styles.rightSection}>
+      <div class={styles.rightContent}>
+        <slot name="header-right" />
+      </div>
+
+      <HeaderClient client:load showUserMenu={showUserMenu} />
+    </div>
+  </div>
+</header>

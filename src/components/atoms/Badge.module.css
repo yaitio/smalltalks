@@ -1,0 +1,77 @@
+.badge {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--space-xs);
+  font-weight: 600;
+  border-radius: var(--radius-sm);
+  white-space: nowrap;
+  transition: all 0.2s;
+}
+
+.icon {
+  display: flex;
+  align-items: center;
+}
+
+/* Size variants */
+.small {
+  font-size: var(--font-size-xs);
+  padding: var(--space-xs) var(--space-sm);
+}
+
+.medium {
+  font-size: var(--font-size-sm);
+  padding: var(--space-xs) var(--space-md);
+}
+
+.large {
+  font-size: var(--font-size-md);
+  padding: var(--space-sm) var(--space-lg);
+}
+
+/* Variant: Default */
+.default {
+  background: var(--color-background);
+  color: var(--color-text-secondary);
+  border: 1px solid var(--color-border);
+}
+
+/* Variant: Difficulty */
+.difficulty {
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+}
+
+.difficulty.beginner {
+  background: #E8F5E9;
+  color: #2E7D32;
+}
+
+.difficulty.intermediate {
+  background: #FFF3E0;
+  color: #E65100;
+}
+
+.difficulty.advanced {
+  background: #FCE4EC;
+  color: #C2185B;
+}
+
+/* Variant: Category */
+.category {
+  background: var(--color-surface);
+  color: var(--color-text-secondary);
+  border: 1px solid var(--color-border);
+}
+
+.category:hover {
+  background: var(--color-background);
+  color: var(--color-text);
+}
+
+/* Variant: Status */
+.status {
+  background: var(--color-primary-light);
+  color: var(--color-primary);
+  border: 1px solid var(--color-primary);
+}
