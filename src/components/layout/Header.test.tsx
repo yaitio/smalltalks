@@ -1,23 +1,36 @@
-import { describe, it, expect } from 'vitest';
 import { render, screen } from '@testing-library/react';
+import { beforeEach, describe, expect, it } from 'vitest';
+import { useAuthStore } from '@/stores/authStore';
 import HeaderClient from './HeaderClient';
 
 describe('Header', () => {
-  it('renders the logo link', () => {
-    render(<HeaderClient />);
-    const logo = screen.getByRole('link', { name: /smalltalks home/i });
-    expect(logo).toBeInTheDocument();
-    expect(logo).toHaveAttribute('href', '/');
+  beforeEach(() => {
+    // Set up authenticated user for tests
+    useAuthStore.setState({
+      user: {
+        user_name: 'Test User',
+        user_email: 'test@example.com',
+        email: 'test@example.com',
+      },
+      isAuthenticated: true,
+    });
   });
 
-  it('displays logo text', () => {
+  it('renders user menu when authenticated', () => {
     render(<HeaderClient />);
-    expect(screen.getByText('smalltalks')).toBeInTheDocument();
+    const userButton = screen.getByRole('button', { name: /test user/i });
+    expect(userButton).toBeInTheDocument();
   });
 
-  it('has proper accessibility attributes', () => {
+  it('displays user name', () => {
     render(<HeaderClient />);
-    const logo = screen.getByRole('link', { name: /smalltalks home/i });
-    expect(logo).toHaveAttribute('aria-label', 'Smalltalks Home');
+    expect(screen.getByText('Test User')).toBeInTheDocument();
+  });
+
+  it('has proper accessibility attributes on user button', () => {
+    render(<HeaderClient />);
+    const userButton = screen.getByRole('button');
+    expect(userButton).toHaveAttribute('aria-expanded', 'false');
+    expect(userButton).toHaveAttribute('aria-haspopup', 'true');
   });
 });

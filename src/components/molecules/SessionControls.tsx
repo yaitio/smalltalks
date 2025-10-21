@@ -1,7 +1,7 @@
-import { useState } from 'react';
-import { useRTCStore } from '@/stores/rtcStore';
-import { useMediaDevices } from '@/hooks/useMediaDevices';
 import Button from '@components/atoms/Button';
+import { useState } from 'react';
+import { useMediaDevices } from '@/hooks/useMediaDevices';
+import { useRTCStore } from '@/stores/rtcStore';
 import styles from './SessionControls.module.css';
 
 export default function SessionControls() {
@@ -86,7 +86,9 @@ export default function SessionControls() {
       {/* Connection status indicator */}
       {(isConnecting || isConnected) && (
         <div className={styles.statusIndicator}>
-          <div className={`${styles.statusDot} ${isConnected ? styles.connected : styles.connecting}`} />
+          <div
+            className={`${styles.statusDot} ${isConnected ? styles.connected : styles.connecting}`}
+          />
           <span className={styles.statusText}>{getConnectionMessage()}</span>
         </div>
       )}
@@ -144,13 +146,7 @@ export default function SessionControls() {
         )}
 
         {isConnecting && (
-          <Button
-            variant="primary"
-            size="md"
-            disabled
-            isLoading
-            className={styles.primaryButton}
-          >
+          <Button variant="primary" size="md" disabled isLoading className={styles.primaryButton}>
             Connecting...
           </Button>
         )}
@@ -169,12 +165,7 @@ export default function SessionControls() {
             </Button>
 
             {/* End conversation */}
-            <Button
-              variant="secondary"
-              size="md"
-              onClick={handleStop}
-              className={styles.endButton}
-            >
+            <Button variant="secondary" size="md" onClick={handleStop} className={styles.endButton}>
               End Conversation
             </Button>
           </>

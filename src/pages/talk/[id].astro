@@ -1,15 +1,13 @@
 ---
-import BaseLayout from '@layouts/BaseLayout.astro';
 import AuthGuard from '@components/AuthGuard';
 import ErrorBoundary from '@components/ErrorBoundary';
 import TalkHistoryPage from '@components/organisms/TalkHistoryPage';
+import BaseLayout from '@layouts/BaseLayout.astro';
 
 // Generate a single static template page
 // The actual conversation ID will be read from the URL path client-side
 export function getStaticPaths() {
-  return [
-    { params: { id: '_' } }
-  ];
+  return [{ params: { id: '_' } }];
 }
 ---
 

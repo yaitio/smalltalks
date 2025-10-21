@@ -1,13 +1,13 @@
-import { useEffect, useState, useRef } from 'react';
-import { useRTCStore } from '@/stores/rtcStore';
-import { useOnlineStatus } from '@/hooks/useOnlineStatus';
+import ConnectionQualityBadge from '@components/atoms/ConnectionQualityBadge';
+import WaveformIndicator from '@components/atoms/WaveformIndicator';
+import ErrorMessage from '@components/molecules/ErrorMessage';
 import SessionControls from '@components/molecules/SessionControls';
 import TranscriptPanel from '@components/molecules/TranscriptPanel';
-import WaveformIndicator from '@components/atoms/WaveformIndicator';
-import ConnectionQualityBadge from '@components/atoms/ConnectionQualityBadge';
-import ErrorMessage from '@components/molecules/ErrorMessage';
+import { useEffect, useRef, useState } from 'react';
 import { getErrorMessage } from '@/constants/errorMessages';
+import { useOnlineStatus } from '@/hooks/useOnlineStatus';
 import { sessionStorage } from '@/services/sessionStorage';
+import { useRTCStore } from '@/stores/rtcStore';
 import type { TalkSession, TranscriptEntry } from '@/types/session';
 import styles from './TalkSession.module.css';
 
@@ -99,7 +99,10 @@ export default function TalkSession() {
     if (transcript.length === 0) return 'Untitled conversation';
 
     // Get first few exchanges
-    const firstExchanges = transcript.slice(0, 4).map((msg) => msg.text).join(' ');
+    const firstExchanges = transcript
+      .slice(0, 4)
+      .map((msg) => msg.text)
+      .join(' ');
 
     // Truncate to reasonable length
     const maxLength = 80;
@@ -113,12 +116,7 @@ export default function TalkSession() {
   return (
     <div className={styles.container}>
       {/* Offline Banner */}
-      {!isOnline && (
-        <ErrorMessage
-          {...getErrorMessage('OFFLINE')}
-          variant="warning"
-        />
-      )}
+      {!isOnline && <ErrorMessage {...getErrorMessage('OFFLINE')} variant="warning" />}
 
       {/* Connection Error */}
       {connectionState.status === 'error' && connectionState.error && (
@@ -131,11 +129,7 @@ export default function TalkSession() {
 
       {/* Poor Connection Warning */}
       {connectionState.quality === 'poor' && isConnected && (
-        <ErrorMessage
-          {...getErrorMessage('POOR_CONNECTION')}
-          variant="warning"
-          dismissible
-        />
+        <ErrorMessage {...getErrorMessage('POOR_CONNECTION')} variant="warning" dismissible />
       )}
 
       {/* Connection Status */}
@@ -155,10 +149,7 @@ export default function TalkSession() {
           </span>
         </div>
 
-        <ConnectionQualityBadge
-          connectionState={connectionState}
-          showDetails={true}
-        />
+        <ConnectionQualityBadge connectionState={connectionState} showDetails={true} />
       </div>
 
       {/* Transcript Display */}

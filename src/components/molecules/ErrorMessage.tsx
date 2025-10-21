@@ -1,5 +1,5 @@
-import { type ErrorMessageConfig } from '@/constants/errorMessages';
 import Button from '@components/atoms/Button';
+import type { ErrorMessageConfig } from '@/constants/errorMessages';
 import styles from './ErrorMessage.module.css';
 
 export interface ErrorMessageProps extends ErrorMessageConfig {
@@ -42,11 +42,7 @@ export default function ErrorMessage({
   };
 
   return (
-    <div
-      className={`${styles.container} ${styles[variant]}`}
-      role="alert"
-      aria-live="assertive"
-    >
+    <div className={`${styles.container} ${styles[variant]}`} role="alert" aria-live="assertive">
       <div className={styles.content}>
         <div className={styles.icon}>{getIcon()}</div>
         <div className={styles.text}>

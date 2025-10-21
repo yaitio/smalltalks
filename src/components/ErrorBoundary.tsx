@@ -66,11 +66,7 @@ export default class ErrorBoundary extends Component<ErrorBoundaryProps, ErrorBo
                 <pre className={styles.errorText}>{this.state.error.toString()}</pre>
               </details>
             )}
-            <button
-              type="button"
-              onClick={this.handleReset}
-              className={styles.button}
-            >
+            <button type="button" onClick={this.handleReset} className={styles.button}>
               Try again
             </button>
           </div>

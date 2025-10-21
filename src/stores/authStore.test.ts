@@ -1,6 +1,6 @@
-import { describe, it, expect, beforeEach, vi } from 'vitest';
-import { useAuthStore } from './authStore';
+import { beforeEach, describe, expect, it, vi } from 'vitest';
 import * as authClientModule from '@/services/authClient';
+import { useAuthStore } from './authStore';
 
 // Mock authClient
 vi.mock('@/services/authClient', () => ({
@@ -54,7 +54,7 @@ describe('authStore', () => {
 
     it('handles errors gracefully', async () => {
       vi.mocked(authClientModule.authClient.isAuthenticated).mockRejectedValue(
-        new Error('Network error'),
+        new Error('Network error')
       );
 
       await useAuthStore.getState().checkAuth();

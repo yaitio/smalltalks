@@ -23,11 +23,14 @@ export default function ProgressBar({
           <span className={styles.label}>{displayLabel}</span>
         </div>
       )}
-      <div className={styles.track} role="progressbar" aria-valuenow={clampedProgress} aria-valuemin={0} aria-valuemax={100}>
-        <div
-          className={styles.fill}
-          style={{ width: `${clampedProgress}%` }}
-        />
+      <div
+        className={styles.track}
+        role="progressbar"
+        aria-valuenow={clampedProgress}
+        aria-valuemin={0}
+        aria-valuemax={100}
+      >
+        <div className={styles.fill} style={{ width: `${clampedProgress}%` }} />
       </div>
     </div>
   );

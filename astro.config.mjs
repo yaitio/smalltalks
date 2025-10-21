@@ -6,7 +6,7 @@ import { defineConfig } from 'astro/config';
 // https://astro.build/config
 export default defineConfig({
   security: {
-    checkOrigin: false
+    checkOrigin: false,
   },
   integrations: [react()],
   vite: {

@@ -4,13 +4,13 @@
  */
 
 import type {
-  RTCClientConfig,
   ConnectionState,
+  RealtimeEvent,
+  RTCClientConfig,
+  SessionResponse,
+  TokenResponse,
   TranscriptMessage,
   TranscriptUpdate,
-  RealtimeEvent,
-  TokenResponse,
-  SessionResponse,
 } from '@/types/rtc';
 
 export class RTCClientService {
@@ -420,7 +420,7 @@ export class RTCClientService {
     if (!item || !item.content) return;
 
     const itemId = item.id || `item-${Date.now()}`;
-    const role = item.role === 'user' ? 'user' : (fallbackRole || 'assistant');
+    const role = item.role === 'user' ? 'user' : fallbackRole || 'assistant';
 
     // Collect text from content array
     const textSegments: string[] = [];
@@ -623,7 +623,7 @@ export class RTCClientService {
     this.isReconnecting = true;
 
     // Calculate exponential backoff delay: 1s, 2s, 4s, 8s, etc.
-    const delay = Math.min(1000 * Math.pow(2, this.reconnectAttempt - 1), 10000);
+    const delay = Math.min(1000 * 2 ** (this.reconnectAttempt - 1), 10000);
 
     console.log(
       `Connection failed. Reconnecting in ${delay}ms (attempt ${this.reconnectAttempt}/${this.config.reconnectAttempts})`

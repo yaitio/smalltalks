@@ -33,7 +33,10 @@ export const useRTCStore = create<RTCState>((set, get) => {
   rtcClient.subscribeToConnectionState((state) => {
     set({
       connectionState: state,
-      isConnecting: state.status === 'fetching_token' || state.status === 'connecting' || state.status === 'reconnecting',
+      isConnecting:
+        state.status === 'fetching_token' ||
+        state.status === 'connecting' ||
+        state.status === 'reconnecting',
       isConnected: state.status === 'connected',
     });
   });

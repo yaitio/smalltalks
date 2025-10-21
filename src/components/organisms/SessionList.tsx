@@ -1,7 +1,7 @@
 import { useEffect, useState } from 'react';
+import Button from '@/components/atoms/Button';
 import { sessionStorage } from '@/services/sessionStorage';
 import type { TalkSession } from '@/types/session';
-import Button from '@/components/atoms/Button';
 import styles from './SessionList.module.css';
 
 export default function SessionList() {
@@ -88,12 +88,8 @@ export default function SessionList() {
                 <td className={styles.topicCell}>
                   <div className={styles.topic}>{session.topic}</div>
                 </td>
-                <td className={styles.durationCell}>
-                  {formatDuration(session.duration)}
-                </td>
-                <td className={styles.dateCell}>
-                  {formatDate(session.createdAt)}
-                </td>
+                <td className={styles.durationCell}>{formatDuration(session.duration)}</td>
+                <td className={styles.dateCell}>{formatDate(session.createdAt)}</td>
                 <td className={styles.actionCell}>
                   <button
                     className={styles.actionButton}
@@ -114,14 +110,9 @@ export default function SessionList() {
           <div key={session.id} className={styles.card}>
             <div className={styles.cardContent}>
               <div className={styles.cardTopic}>{session.topic}</div>
-              <div className={styles.cardDate}>
-                {formatDate(session.createdAt)}
-              </div>
+              <div className={styles.cardDate}>{formatDate(session.createdAt)}</div>
             </div>
-            <button
-              className={styles.cardButton}
-              onClick={() => handleGetStarted(session.id)}
-            >
+            <button className={styles.cardButton} onClick={() => handleGetStarted(session.id)}>
               Get started
             </button>
           </div>

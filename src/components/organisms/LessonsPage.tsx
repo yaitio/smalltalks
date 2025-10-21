@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react';
-import { lessonsClient, type Lesson } from '@/services/lessonsClient';
+import { type Lesson, lessonsClient } from '@/services/lessonsClient';
 import styles from './LessonsPage.module.css';
 
 export interface LessonsPageProps {
@@ -64,11 +64,7 @@ export const LessonsPage: React.FC<LessonsPageProps> = ({ className }) => {
         <div className={styles.empty}>
           <h2>Error loading lessons</h2>
           <p>{error}</p>
-          <button
-            type="button"
-            onClick={loadLessons}
-            className={styles.startButton}
-          >
+          <button type="button" onClick={loadLessons} className={styles.startButton}>
             Try again
           </button>
         </div>

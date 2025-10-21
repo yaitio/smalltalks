@@ -43,18 +43,18 @@
 }
 
 .difficulty.beginner {
-  background: #E8F5E9;
-  color: #2E7D32;
+  background: #e8f5e9;
+  color: #2e7d32;
 }
 
 .difficulty.intermediate {
-  background: #FFF3E0;
-  color: #E65100;
+  background: #fff3e0;
+  color: #e65100;
 }
 
 .difficulty.advanced {
-  background: #FCE4EC;
-  color: #C2185B;
+  background: #fce4ec;
+  color: #c2185b;
 }
 
 /* Variant: Category */

@@ -15,12 +15,7 @@ export default function Badge({
   size = 'medium',
   icon,
 }: BadgeProps) {
-  const classes = [
-    styles.badge,
-    styles[variant],
-    styles[size],
-    difficulty && styles[difficulty],
-  ]
+  const classes = [styles.badge, styles[variant], styles[size], difficulty && styles[difficulty]]
     .filter(Boolean)
     .join(' ');
 

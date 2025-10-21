@@ -1,6 +1,6 @@
-import React from 'react';
 import SessionControls from '@components/molecules/SessionControls';
 import TranscriptPanel from '@components/molecules/TranscriptPanel';
+import type React from 'react';
 import { useRTCStore } from '@/stores/rtcStore';
 import styles from './TalkPage.module.css';
 

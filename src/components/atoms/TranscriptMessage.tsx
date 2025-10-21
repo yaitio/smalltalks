@@ -13,7 +13,12 @@ export interface TranscriptMessageProps {
  * Individual transcript message with role indicator, text, and timestamp
  * Shows streaming indicator when message is being received in real-time
  */
-export default function TranscriptMessage({ text, role, timestamp, isStreaming }: TranscriptMessageProps) {
+export default function TranscriptMessage({
+  text,
+  role,
+  timestamp,
+  isStreaming,
+}: TranscriptMessageProps) {
   const { user } = useAuthStore();
 
   const formattedTime = new Date(timestamp).toLocaleTimeString([], {
@@ -21,7 +26,7 @@ export default function TranscriptMessage({ text, role, timestamp, isStreaming }
     minute: '2-digit',
   });
 
-  const displayName = role === 'user' ? (user?.name || 'You') : 'Mentor';
+  const displayName = role === 'user' ? user?.name || 'You' : 'Mentor';
 
   return (
     <div className={`${styles.message} ${styles[role]}`}>

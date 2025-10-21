@@ -1,7 +1,7 @@
-import { describe, it, expect, beforeEach, vi } from 'vitest';
 import { render, screen, waitFor } from '@testing-library/react';
-import AuthGuard from './AuthGuard';
+import { beforeEach, describe, expect, it, vi } from 'vitest';
 import { useAuthStore } from '@/stores/authStore';
+import AuthGuard from './AuthGuard';
 
 // Mock the auth store
 vi.mock('@/stores/authStore', () => ({
@@ -30,7 +30,7 @@ describe('AuthGuard', () => {
     render(
       <AuthGuard>
         <div>Protected Content</div>
-      </AuthGuard>,
+      </AuthGuard>
     );
 
     expect(screen.getByText('Loading...')).toBeInTheDocument();
@@ -52,7 +52,7 @@ describe('AuthGuard', () => {
     render(
       <AuthGuard>
         <div>Protected Content</div>
-      </AuthGuard>,
+      </AuthGuard>
     );
 
     await waitFor(() => {
@@ -75,7 +75,7 @@ describe('AuthGuard', () => {
     render(
       <AuthGuard>
         <div>Protected Content</div>
-      </AuthGuard>,
+      </AuthGuard>
     );
 
     expect(mockCheckAuth).toHaveBeenCalledTimes(1);
@@ -96,7 +96,7 @@ describe('AuthGuard', () => {
     const { container } = render(
       <AuthGuard>
         <div>Protected Content</div>
-      </AuthGuard>,
+      </AuthGuard>
     );
 
     expect(container.firstChild).toBeNull();

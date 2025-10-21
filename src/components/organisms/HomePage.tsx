@@ -1,7 +1,7 @@
 import { type FC, useEffect, useState } from 'react';
 import { authClient, type User } from '@/services/authClient';
-import styles from './HomePage.module.css';
 import AuthForm from './AuthForm';
+import styles from './HomePage.module.css';
 
 export interface HomePageProps {
   className?: string;

@@ -2,7 +2,6 @@
   background: var(--color-background);
   padding: 10px 0;
   height: 45px;
-
 }
 
 .container {
@@ -59,7 +58,7 @@
   transition: opacity 0.2s ease;
   /* About */
 
-  font-family: 'Inter';
+  font-family: "Inter";
   font-style: normal;
   font-weight: 400;
   font-size: 16px;

@@ -28,15 +28,9 @@ export default function ConnectionQualityBadge({
 
       {showDetails && (latency !== null || packetLoss !== null) && (
         <div className={styles.details}>
-          {latency !== null && (
-            <span className={styles.metric}>
-              {latency}ms
-            </span>
-          )}
+          {latency !== null && <span className={styles.metric}>{latency}ms</span>}
           {packetLoss !== null && (
-            <span className={styles.metric}>
-              {packetLoss.toFixed(1)}% loss
-            </span>
+            <span className={styles.metric}>{packetLoss.toFixed(1)}% loss</span>
           )}
         </div>
       )}

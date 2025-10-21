@@ -4,7 +4,6 @@
   flex-direction: column;
 }
 
-
 .nav {
   display: flex;
   gap: 24px;
@@ -22,7 +21,10 @@
   font-size: 16px;
   font-weight: 600;
   box-shadow: 0 12px 24px rgba(234, 79, 67, 0.24);
-  transition: transform 0.2s, box-shadow 0.2s, background-color 0.2s;
+  transition:
+    transform 0.2s,
+    box-shadow 0.2s,
+    background-color 0.2s;
 }
 
 .navLink:hover {
@@ -114,7 +116,9 @@
   font-size: 16px;
   font-weight: 500;
   cursor: pointer;
-  transition: background-color 0.2s, color 0.2s;
+  transition:
+    background-color 0.2s,
+    color 0.2s;
   /* Auto Layout Horizontal */
 
   box-sizing: border-box;
@@ -175,7 +179,10 @@
   border-radius: 8px;
   cursor: pointer;
   margin-top: 8px;
-  transition: transform 0.2s, box-shadow 0.2s, background-color 0.2s;
+  transition:
+    transform 0.2s,
+    box-shadow 0.2s,
+    background-color 0.2s;
 }
 
 .startButton:hover {
@@ -223,7 +230,6 @@
 
 /* Responsive Design */
 @media (max-width: 1530px) {
-
   .headerDuration,
   .sessionDuration {
     display: none;
@@ -236,7 +242,6 @@
 }
 
 @media (max-width: 1200px) {
-
   .header,
   .content,
   .footer {
@@ -246,7 +251,6 @@
 }
 
 @media (max-width: 768px) {
-
   .header,
   .content,
   .footer {

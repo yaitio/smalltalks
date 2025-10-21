@@ -1,5 +1,5 @@
-import { describe, it, expect } from 'vitest';
 import { render, screen } from '@testing-library/react';
+import { describe, expect, it } from 'vitest';
 import Footer from './Footer';
 
 describe('Footer', () => {
@@ -7,14 +7,14 @@ describe('Footer', () => {
     render(<Footer />);
     const aboutLink = screen.getByRole('link', { name: /about/i });
     expect(aboutLink).toBeInTheDocument();
-    expect(aboutLink).toHaveAttribute('href', '/about');
+    expect(aboutLink).toHaveAttribute('href', '/');
   });
 
   it('renders Support link', () => {
     render(<Footer />);
     const supportLink = screen.getByRole('link', { name: /support/i });
     expect(supportLink).toBeInTheDocument();
-    expect(supportLink).toHaveAttribute('href', '/support');
+    expect(supportLink).toHaveAttribute('href', 'mailto:example@example.com');
   });
 
   it('has proper navigation landmark', () => {

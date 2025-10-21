@@ -55,7 +55,7 @@ class SessionStorage {
         transcript: [
           {
             role: 'assistant',
-            text: 'Hi! Let\'s talk about your daily routine. What time do you usually wake up?',
+            text: "Hi! Let's talk about your daily routine. What time do you usually wake up?",
             timestamp: new Date('2025-10-10T08:00:00').toISOString(),
           },
           {
@@ -112,7 +112,7 @@ class SessionStorage {
         transcript: [
           {
             role: 'assistant',
-            text: 'What\'s your favorite type of food?',
+            text: "What's your favorite type of food?",
             timestamp: new Date('2025-10-02T12:00:00').toISOString(),
           },
           {

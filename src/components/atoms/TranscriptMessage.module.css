@@ -73,11 +73,10 @@
 }
 
 .message.user .content {
-  background: #F6F5F4;
+  background: #f6f5f4;
   padding: 25px;
   border-radius: 12px;
   align-items: flex-end;
-
 }
 
 .message.assistant .content {
@@ -97,7 +96,7 @@
 .divider {
   width: 100%;
   height: 0px;
-  border: 1px solid #E7E7E7;
+  border: 1px solid #e7e7e7;
 }
 
 /* Streaming indicators */
@@ -129,7 +128,9 @@
 }
 
 @keyframes pulse {
-  0%, 60%, 100% {
+  0%,
+  60%,
+  100% {
     opacity: 0.3;
     transform: scale(0.8);
   }
@@ -149,10 +150,12 @@
 }
 
 @keyframes blink {
-  0%, 50% {
+  0%,
+  50% {
     opacity: 1;
   }
-  51%, 100% {
+  51%,
+  100% {
     opacity: 0;
   }
 }

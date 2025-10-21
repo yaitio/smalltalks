@@ -1,5 +1,6 @@
-import React, { useEffect, useState } from 'react';
 import TranscriptPanel from '@components/molecules/TranscriptPanel';
+import type React from 'react';
+import { useEffect, useState } from 'react';
 import type { TranscriptMessage } from '@/types/rtc';
 import styles from './TalkPage.module.css';
 
@@ -8,7 +9,10 @@ export interface TalkHistoryPageProps {
   conversationId?: string;
 }
 
-export const TalkHistoryPage: React.FC<TalkHistoryPageProps> = ({ className, conversationId: propConversationId }) => {
+export const TalkHistoryPage: React.FC<TalkHistoryPageProps> = ({
+  className,
+  conversationId: propConversationId,
+}) => {
   const [messages, setMessages] = useState<TranscriptMessage[]>([]);
   const [isLoading, setIsLoading] = useState(true);
   const [error, setError] = useState<string | null>(null);
@@ -18,7 +22,8 @@ export const TalkHistoryPage: React.FC<TalkHistoryPageProps> = ({ className, con
       // Get conversation ID from URL path or prop
       const pathParts = window.location.pathname.split('/');
       const urlConversationId = pathParts[pathParts.length - 1];
-      const conversationId = propConversationId || (urlConversationId !== '_' ? urlConversationId : null);
+      const conversationId =
+        propConversationId || (urlConversationId !== '_' ? urlConversationId : null);
 
       if (!conversationId) {
         setError('No conversation ID provided');
@@ -27,7 +32,8 @@ export const TalkHistoryPage: React.FC<TalkHistoryPageProps> = ({ className, con
       }
 
       try {
-        const apiBaseUrl = import.meta.env.PUBLIC_API_BASE_URL || 'https://api.yait.io/v1/smalltalks';
+        const apiBaseUrl =
+          import.meta.env.PUBLIC_API_BASE_URL || 'https://api.yait.io/v1/smalltalks';
 
         const response = await fetch(`${apiBaseUrl}/conversations/${conversationId}`, {
           method: 'GET',
@@ -45,12 +51,13 @@ export const TalkHistoryPage: React.FC<TalkHistoryPageProps> = ({ className, con
 
         // Transform API response to TranscriptMessage format
         // Adjust this based on actual API response structure
-        const transformedMessages: TranscriptMessage[] = data.messages?.map((msg: any, index: number) => ({
-          id: msg.id || `msg-${index}`,
-          text: msg.text || msg.content || '',
-          role: msg.role || 'user',
-          timestamp: msg.timestamp || Date.now(),
-        })) || [];
+        const transformedMessages: TranscriptMessage[] =
+          data.messages?.map((msg: any, index: number) => ({
+            id: msg.id || `msg-${index}`,
+            text: msg.text || msg.content || '',
+            role: msg.role || 'user',
+            timestamp: msg.timestamp || Date.now(),
+          })) || [];
 
         setMessages(transformedMessages);
       } catch (err) {

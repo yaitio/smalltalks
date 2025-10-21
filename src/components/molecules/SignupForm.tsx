@@ -1,11 +1,11 @@
-import { useState } from 'react';
-import { useForm } from 'react-hook-form';
-import { zodResolver } from '@hookform/resolvers/zod';
-import { z } from 'zod';
-import { authClient } from '@/services/authClient';
+import Alert from '@components/atoms/Alert';
 import Button from '@components/atoms/Button';
 import Input from '@components/atoms/Input';
-import Alert from '@components/atoms/Alert';
+import { zodResolver } from '@hookform/resolvers/zod';
+import { useState } from 'react';
+import { useForm } from 'react-hook-form';
+import { z } from 'zod';
+import { authClient } from '@/services/authClient';
 import styles from './SignupForm.module.css';
 
 const signupSchema = z.object({

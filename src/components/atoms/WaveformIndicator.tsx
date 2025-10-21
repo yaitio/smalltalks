@@ -48,7 +48,7 @@ export default function WaveformIndicator({
 
       // Create wave effect with randomness based on audio level
       const baseHeight = isSpeaking
-        ? (audioLevel * maxBarHeight * 0.8) + (Math.random() * audioLevel * maxBarHeight * 0.2)
+        ? audioLevel * maxBarHeight * 0.8 + Math.random() * audioLevel * maxBarHeight * 0.2
         : Math.random() * maxBarHeight * 0.1;
 
       // Smooth wave pattern
@@ -60,7 +60,7 @@ export default function WaveformIndicator({
 
       // Opacity based on position (fades at edges)
       const centerDistance = Math.abs(i - barCount / 2) / (barCount / 2);
-      const opacity = 1 - (centerDistance * 0.3);
+      const opacity = 1 - centerDistance * 0.3;
 
       // Draw bar
       ctx.fillStyle = color;
@@ -79,11 +79,7 @@ export default function WaveformIndicator({
         aria-label="Audio waveform visualization"
         role="img"
       />
-      {!isSpeaking && (
-        <div className={styles.idleText}>
-          Waiting for audio...
-        </div>
-      )}
+      {!isSpeaking && <div className={styles.idleText}>Waiting for audio...</div>}
     </div>
   );
 }

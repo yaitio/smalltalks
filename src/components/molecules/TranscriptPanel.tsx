@@ -1,6 +1,6 @@
+import TranscriptMessage from '@components/atoms/TranscriptMessage';
 import { useEffect, useRef, useState } from 'react';
 import type { TranscriptMessage as TranscriptMessageType } from '@/types/rtc';
-import TranscriptMessage from '@components/atoms/TranscriptMessage';
 import styles from './TranscriptPanel.module.css';
 
 export interface TranscriptPanelProps {
