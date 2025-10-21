@@ -7,7 +7,7 @@ export default function Footer() {
         <div className={styles.content}>
           <nav className={styles.nav} aria-label="Footer navigation">
             <a href="/" className={styles.link}>
-              About
+              About Us
             </a>
             <a href="mailto:example@example.com" className={styles.link}>
               Support
