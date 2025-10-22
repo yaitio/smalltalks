@@ -112,6 +112,9 @@ jobs:
         run: pnpm install --frozen-lockfile
 
       - name: Build project
+        env:
+          PUBLIC_API_BASE_URL: https://api.smalltalks.io/v1/smalltalks
+          PUBLIC_AUTH_BYPASS: false
         run: pnpm build
 
       - name: Upload build artifacts

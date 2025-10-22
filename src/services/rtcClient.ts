@@ -140,7 +140,7 @@ export class RTCClientService {
   private async fetchToken(): Promise<string> {
     const response = await fetch(this.config.tokenEndpoint, {
       method: 'GET',
-      // credentials: 'include', // Include cookies for authentication
+      credentials: 'include', // Include cookies for authentication
       headers: {
         'Content-Type': 'application/json',
       },
@@ -269,7 +269,7 @@ export class RTCClientService {
     // Backend expects: Authorization header with Bearer token, SDP as body
     const response = await fetch(this.config.sessionEndpoint, {
       method: 'POST',
-      // credentials: 'include', // Include cookies for authentication
+      credentials: 'include', // Include cookies for authentication
       headers: {
         Authorization: `Bearer ${token}`,
         'Content-Type': 'application/sdp',

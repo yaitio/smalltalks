@@ -21,7 +21,7 @@ export class AuthClient {
 
   constructor() {
     this.authBypass = import.meta.env.PUBLIC_AUTH_BYPASS === 'true';
-    this.apiBaseUrl = import.meta.env.PUBLIC_API_BASE_URL || 'https://api.yait.io/v1/smalltalks';
+    this.apiBaseUrl = import.meta.env.PUBLIC_API_BASE_URL || 'https://api.smalltalks.io/v1/smalltalks';
   }
 
   /**
