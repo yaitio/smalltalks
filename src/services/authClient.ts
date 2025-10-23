@@ -67,9 +67,9 @@ export class AuthClient {
       const response = await fetch(`${this.apiBaseUrl}/auth/info`, {
         method: 'GET',
         credentials: 'include', // Include cookies in request
-        headers: {
-          'Content-Type': 'application/json',
-        },
+        // headers: {
+        // 'Content-Type': 'application/json',
+        // },
       });
 
       if (!response.ok) {
@@ -88,22 +88,6 @@ export class AuthClient {
    * Login with email (magic link flow)
    * Stub implementation - will call backend in Week 2
    */
-  async login(email: string): Promise<{ success: boolean; message: string }> {
-    if (this.authBypass) {
-      return {
-        success: true,
-        message: 'Auth bypass enabled - user logged in',
-      };
-    }
-
-    // Call backend magic link endpoint (stub)
-    // POST /api/v1/auth/magic-link
-    return {
-      success: true,
-      message: 'Magic link sent to email (stub)',
-    };
-  }
-
   /**
    * Request magic link for email
    * Sends a magic link to the provided email address
