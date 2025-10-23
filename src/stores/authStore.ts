@@ -9,7 +9,6 @@ interface AuthState {
 
   // Actions
   checkAuth: () => Promise<void>;
-  login: (email: string) => Promise<{ success: boolean; message: string }>;
   logout: () => Promise<void>;
   setUser: (user: User | null) => void;
 }
@@ -24,10 +23,9 @@ export const useAuthStore = create<AuthState>((set) => ({
     set({ isLoading: true, error: null });
 
     try {
-      const isAuth = await authClient.isAuthenticated();
+      const user = await authClient.getUser();
 
-      if (isAuth) {
-        const user = await authClient.getUser();
+      if (user) {
         set({
           isAuthenticated: true,
           user,
@@ -47,41 +45,6 @@ export const useAuthStore = create<AuthState>((set) => ({
         isLoading: false,
         error: error instanceof Error ? error.message : 'Authentication check failed',
       });
-    }
-  },
-
-  login: async (email: string) => {
-    set({ isLoading: true, error: null });
-
-    try {
-      const result = await authClient.login(email);
-
-      if (result.success) {
-        const user = await authClient.getUser();
-        set({
-          isAuthenticated: true,
-          user,
-          isLoading: false,
-        });
-      } else {
-        set({
-          isLoading: false,
-          error: result.message,
-        });
-      }
-
-      return result;
-    } catch (error) {
-      const errorMessage = error instanceof Error ? error.message : 'Login failed';
-      set({
-        isLoading: false,
-        error: errorMessage,
-      });
-
-      return {
-        success: false,
-        message: errorMessage,
-      };
     }
   },
 
