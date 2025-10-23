@@ -272,7 +272,7 @@ export class RTCClientService {
       credentials: 'include', // Include cookies for authentication
       headers: {
         Authorization: `Bearer ${token}`,
-        // 'Content-Type': 'application/sdp',
+        'Content-Type': 'application/sdp',
       },
       body: offer.sdp, // Send raw SDP string, not JSON
     });
