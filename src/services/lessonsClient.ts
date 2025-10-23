@@ -24,7 +24,8 @@ export class LessonsClient {
   private readonly apiBaseUrl: string;
 
   constructor() {
-    this.apiBaseUrl = import.meta.env.PUBLIC_API_BASE_URL || 'https://api.smalltalks.io/v1/smalltalks';
+    this.apiBaseUrl =
+      import.meta.env.PUBLIC_API_BASE_URL || 'https://api.smalltalks.io/v1/smalltalks';
   }
 
   /**
@@ -35,9 +36,9 @@ export class LessonsClient {
       const response = await fetch(`${this.apiBaseUrl}/agent/lessons`, {
         method: 'GET',
         credentials: 'include', // Include authentication cookies
-        headers: {
-          'Content-Type': 'application/json',
-        },
+        // headers: {
+        // 'Content-Type': 'application/json',
+        // },
       });
 
       if (!response.ok) {
@@ -70,9 +71,9 @@ export class LessonsClient {
       const response = await fetch(`${this.apiBaseUrl}/agent/lessons/${id}`, {
         method: 'GET',
         credentials: 'include',
-        headers: {
-          'Content-Type': 'application/json',
-        },
+        // headers: {
+        // 'Content-Type': 'application/json',
+        // },
       });
 
       if (!response.ok) {

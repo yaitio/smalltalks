@@ -141,9 +141,9 @@ export class RTCClientService {
     const response = await fetch(this.config.tokenEndpoint, {
       method: 'GET',
       credentials: 'include', // Include cookies for authentication
-      headers: {
-        'Content-Type': 'application/json',
-      },
+      // headers: {
+      // 'Content-Type': 'application/json',
+      // },
     });
 
     if (!response.ok) {
