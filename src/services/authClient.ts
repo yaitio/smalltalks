@@ -21,7 +21,8 @@ export class AuthClient {
 
   constructor() {
     this.authBypass = import.meta.env.PUBLIC_AUTH_BYPASS === 'true';
-    this.apiBaseUrl = import.meta.env.PUBLIC_API_BASE_URL || 'https://api.smalltalks.io/v1/smalltalks';
+    this.apiBaseUrl =
+      import.meta.env.PUBLIC_API_BASE_URL || 'https://api.smalltalks.io/v1/smalltalks';
   }
 
   /**
@@ -37,9 +38,9 @@ export class AuthClient {
       const response = await fetch(`${this.apiBaseUrl}/auth/info`, {
         method: 'GET',
         credentials: 'include', // Include cookies in request
-        headers: {
-          'Content-Type': 'application/json',
-        },
+        // headers: {
+        // 'Content-Type': 'application/json',
+        // },
       });
 
       return response.ok;
